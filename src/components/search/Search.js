@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MenuItem } from "@material-ui/core";
 import { Select, FormControl, InputLabel, TextField } from "@material-ui/core";
 import axios from "axios";
+import ImageResults from "../image-result/ImageResults"; 
 
 const Search = () => {
    const [searchText, setSearchText] = useState("");
@@ -12,12 +13,11 @@ const Search = () => {
 
    const handleSearchChange = (e) => {
       setSearchText(e.target.value);
-      console.log(amount);
       axios
          .get(
             `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}`
          )
-         .then((res) => console.log(res.data.hits))
+         .then((res) => setImages(res.data.hits))
          .catch((err) => console.log(err));
    };
 
@@ -30,6 +30,7 @@ const Search = () => {
             label="Search for images"
             fullWidth={true}
             margin="normal"
+            autoComplete="off"
          />
          <br />
          <FormControl className="">
@@ -47,6 +48,9 @@ const Search = () => {
                <MenuItem value={50}>50</MenuItem>
             </Select>
          </FormControl>
+         <br />
+         <br />
+         {images.length > 0 && <ImageResults imagesData={images} />}
       </div>
    );
 };
