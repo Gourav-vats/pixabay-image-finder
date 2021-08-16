@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuItem } from "@material-ui/core";
 import { Select, FormControl, InputLabel, TextField } from "@material-ui/core";
 import axios from "axios";
-import ImageResults from "../image-result/ImageResults"; 
+import ImageResults from "../image-result/ImageResults";
 
 const Search = () => {
    const [searchText, setSearchText] = useState("");
@@ -13,13 +13,21 @@ const Search = () => {
 
    const handleSearchChange = (e) => {
       setSearchText(e.target.value);
-      axios
-         .get(
-            `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}`
-         )
-         .then((res) => setImages(res.data.hits))
-         .catch((err) => console.log(err));
    };
+
+   useEffect(() => {
+      if (searchText === "") {
+         setImages([]);
+      } else {
+         axios
+            .get(
+               `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}`
+            )
+            .then((res) => setImages(res.data.hits))
+            .catch((err) => console.log(err));
+         console.log("API request made");
+      }
+   }, [searchText, amount]);
 
    return (
       <div>

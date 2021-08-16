@@ -6,15 +6,15 @@ import {
    IconButton,
    Grid,
 } from "@material-ui/core";
-import ZoomInTwoToneIcon from "@material-ui/icons/ZoomInTwoTone";
+import ZoomIn from "@material-ui/icons/ZoomIn";
 
 const ImageResults = (props) => {
    const { imagesData } = props;
    return (
-      <Grid md={2}>
+      <Grid>
          <ImageList cols={12}>
             {imagesData.map((image) => (
-               <ImageListItem key={image.id} cols={3}>
+               <ImageListItem key={image.id} cols={3} >
                   <img src={image.largeImageURL} alt={image.type} />
                   <ImageListItemBar
                      title={image.tags}
@@ -25,7 +25,7 @@ const ImageResults = (props) => {
                      }
                      actionIcon={
                         <IconButton>
-                           <ZoomInTwoToneIcon color="white" />
+                           <ZoomIn style={{color: "white"}} />
                         </IconButton>
                      }
                   />
