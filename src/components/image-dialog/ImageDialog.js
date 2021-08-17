@@ -4,21 +4,27 @@ import {
    DialogActions,
    DialogContent,
    DialogTitle,
+   Button,
 } from "@material-ui/core";
-import { Close } from "@material-ui/icons";
 
 const ImageDialog = (props) => {
-   console.log(props);
    const { open, handleClose, img } = props;
 
    return (
-      <Dialog open={open} onClose={handleClose()}>
+      <Dialog open={open} onClose={handleClose}>
          <DialogTitle>{img.tags}</DialogTitle>
          <DialogContent>
             <img src={img.largeImageURL} width={100 + "%"} />
          </DialogContent>
          <DialogActions>
-            <Close onClick={handleClose} />
+            <Button
+               onClick={handleClose}
+               style={{ backgroundColor: "#1597BB", color:"white" }}
+               variant="contained"
+               size="small"
+            >
+               Close
+            </Button>
          </DialogActions>
       </Dialog>
    );
