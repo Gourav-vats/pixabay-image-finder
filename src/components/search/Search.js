@@ -25,7 +25,6 @@ const Search = () => {
             )
             .then((res) => setImages(res.data.hits))
             .catch((err) => console.log(err));
-         console.log("API request made");
       }
    }, [searchText, amount]);
 

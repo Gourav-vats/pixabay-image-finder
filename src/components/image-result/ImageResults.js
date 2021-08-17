@@ -6,28 +6,23 @@ import {
    ImageListItemBar,
    IconButton,
    Grid,
-   useMediaQuery,
 } from "@material-ui/core";
-import { ZoomIn, Close } from "@material-ui/icons";
-import {
-   Dialog,
-   DialogActions,
-   DialogContent,
-   DialogTitle,
-} from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { ZoomIn } from "@material-ui/icons";
+import ImageDialog from "../image-dialog/ImageDialog";
 
 const ImageResults = (props) => {
    const [open, setOpen] = useState(false);
-   const theme = useTheme();
-   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-   const handleClickOpen = () => {
-      setOpen(true);
-   };
+   const [currentImg, setCurrentImg] = useState({});
 
    const handleClose = () => {
       setOpen(false);
+   };
+
+   const handleClickOpen = () => {
+      setOpen(true);
+      console.log(open);
+      <ImageDialog open={open} handleClose={handleClose} img={currentImg} />;
+      console.log(open);
    };
 
    const { imagesData } = props;
@@ -38,19 +33,6 @@ const ImageResults = (props) => {
             {imagesData.map((image) => (
                <ImageListItem key={image.id} cols={3}>
                   <img src={image.largeImageURL} alt={image.type} />
-                  <Dialog
-                     fullScreen={fullScreen}
-                     open={open}
-                     onClose={handleClose}
-                  >
-                     <DialogTitle>{image.tags}</DialogTitle>
-                     <DialogContent>
-                        <img src={image.largeImageURL} width={100 + "%"} />
-                     </DialogContent>
-                     <DialogActions>
-                        <Close onClick={handleClose} />
-                     </DialogActions>
-                  </Dialog>
                   <ImageListItemBar
                      title={image.tags}
                      subtitle={
@@ -59,8 +41,13 @@ const ImageResults = (props) => {
                         </span>
                      }
                      actionIcon={
-                        <IconButton onClick={handleClickOpen}>
-                           <ZoomIn style={{ color: "white" }} />
+                        <IconButton
+                           onClick={() => {
+                              setCurrentImg(image);
+                              handleClickOpen();
+                           }}
+                        >
+                           <ZoomIn style={{ color: "white" }}>Close</ZoomIn>
                         </IconButton>
                      }
                   />
