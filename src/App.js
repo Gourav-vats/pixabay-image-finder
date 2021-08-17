@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Search from "./components/search/Search";
 import { MuiThemeProvider, Container } from "@material-ui/core";
