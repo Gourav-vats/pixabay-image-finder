@@ -8,8 +8,6 @@ const Search = () => {
    const [searchText, setSearchText] = useState("");
    const [amount, setAmount] = useState(5);
    const [images, setImages] = useState([]);
-   const apiUrl = "https://pixabay.com/api/";
-   const apiKey = process.env.REACT_APP_API_KEY;
 
    const handleSearchChange = (e) => {
       setSearchText(e.target.value);
@@ -21,9 +19,9 @@ const Search = () => {
       } else {
          axios
             .get(
-               `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}`
+               `https://hidden-fjord-25647.herokuapp.com/${searchText}/${amount}`
             )
-            .then((res) => setImages(res.data.hits))
+            .then((res) => setImages(res.data))
             .catch((err) => console.log(err));
       }
    }, [searchText, amount]);
