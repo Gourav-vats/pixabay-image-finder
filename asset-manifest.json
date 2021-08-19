@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/.github.io/pixabay-image-finder/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/.github.io/pixabay-image-finder/static/js/main.acb741c9.chunk.js",
+    "main.js.map": "/.github.io/pixabay-image-finder/static/js/main.acb741c9.chunk.js.map",
+    "runtime-main.js": "/.github.io/pixabay-image-finder/static/js/runtime-main.704361c2.js",
+    "runtime-main.js.map": "/.github.io/pixabay-image-finder/static/js/runtime-main.704361c2.js.map",
+    "static/js/2.50b15647.chunk.js": "/.github.io/pixabay-image-finder/static/js/2.50b15647.chunk.js",
+    "static/js/2.50b15647.chunk.js.map": "/.github.io/pixabay-image-finder/static/js/2.50b15647.chunk.js.map",
+    "index.html": "/.github.io/pixabay-image-finder/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/.github.io/pixabay-image-finder/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.50b15647.chunk.js.LICENSE.txt": "/.github.io/pixabay-image-finder/static/js/2.50b15647.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.704361c2.js",
+    "static/js/2.50b15647.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.acb741c9.chunk.js"
+  ]
+}
