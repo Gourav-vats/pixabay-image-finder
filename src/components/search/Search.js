@@ -6,7 +6,7 @@ import ImageResults from "../image-result/ImageResults";
 
 const Search = () => {
    const [searchText, setSearchText] = useState("");
-   const [amount, setAmount] = useState(5);
+   const [amount, setAmount] = useState(20);
    const [images, setImages] = useState([]);
 
    const handleSearchChange = (e) => {
